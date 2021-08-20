@@ -1,3 +1,9 @@
+"use strict";
+
 import "./slider";
 
-console.log(1);
+import modal from './modules/modal';
+
+window.addEventListener('DOMContentLoaded', function() {
+	modal();
+});

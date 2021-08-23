@@ -15473,7 +15473,8 @@ __webpack_require__.r(__webpack_exports__);
 
 window.addEventListener('DOMContentLoaded', function () {
   Object(_modules_modal__WEBPACK_IMPORTED_MODULE_1__["default"])();
-  Object(_modules_tabs__WEBPACK_IMPORTED_MODULE_2__["default"])();
+  Object(_modules_tabs__WEBPACK_IMPORTED_MODULE_2__["default"])('.glazing_slider', '.glazing_block', '.glazing_content', 'active');
+  Object(_modules_tabs__WEBPACK_IMPORTED_MODULE_2__["default"])('.decoration_slider', '.no_click', '.decoration_content > div > div', 'after_click');
 });
 
 /***/ }),
@@ -15554,43 +15555,38 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function tabs() {
-  function bindTabs(parentSelector, tabSelector, contentSelector, activeClass) {
-    var tabsParent = document.querySelector(parentSelector),
-        tabs = document.querySelectorAll(tabSelector),
-        tabsContent = document.querySelectorAll(contentSelector);
+function tabs(parentSelector, tabSelector, contentSelector, activeClass) {
+  var tabsParent = document.querySelector(parentSelector),
+      tabs = document.querySelectorAll(tabSelector),
+      tabsContent = document.querySelectorAll(contentSelector);
 
-    function hideTabContent() {
-      tabsContent.forEach(function (item) {
-        item.style.display = 'none';
-      });
-      tabs.forEach(function (item) {
-        item.classList.remove(activeClass);
-      });
-    }
-
-    function showTabContent() {
-      var i = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
-      tabsContent[i].style.display = 'block';
-      tabs[i].classList.add(activeClass);
-    }
-
-    hideTabContent();
-    showTabContent();
-    tabsParent.addEventListener('click', function (e) {
-      if (e.target && (e.target.classList.contains(tabSelector.replace(/\./, "")) || e.target.parentNode.classList.contains(tabSelector.replace(/\./, "")))) {
-        tabs.forEach(function (item, i) {
-          if (e.target == item || e.target.parentNode == item) {
-            hideTabContent();
-            showTabContent(i);
-          }
-        });
-      }
+  function hideTabContent() {
+    tabsContent.forEach(function (item) {
+      item.style.display = 'none';
+    });
+    tabs.forEach(function (item) {
+      item.classList.remove(activeClass);
     });
   }
 
-  bindTabs('.glazing_slider', '.glazing_block', '.glazing_content', 'active');
-  bindTabs('.decoration_slider', '.no_click', '.decoration_content > div > div', 'after_click');
+  function showTabContent() {
+    var i = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+    tabsContent[i].style.display = 'block';
+    tabs[i].classList.add(activeClass);
+  }
+
+  hideTabContent();
+  showTabContent();
+  tabsParent.addEventListener('click', function (e) {
+    if (e.target && (e.target.classList.contains(tabSelector.replace(/\./, "")) || e.target.parentNode.classList.contains(tabSelector.replace(/\./, "")))) {
+      tabs.forEach(function (item, i) {
+        if (e.target == item || e.target.parentNode == item) {
+          hideTabContent();
+          showTabContent(i);
+        }
+      });
+    }
+  });
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (tabs);

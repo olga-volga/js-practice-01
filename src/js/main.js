@@ -3,9 +3,7 @@
 import "./slider";
 
 import modal from './modules/modal';
-import tabs from './modules/tabs';
 
 window.addEventListener('DOMContentLoaded', function() {
 	modal();
-	tabs();
 });

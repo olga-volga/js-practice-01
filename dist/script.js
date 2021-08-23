@@ -14895,7 +14895,7 @@ function modal() {
         closeModal();
       }
     });
-    close.addEventListener('click', function (e) {
+    close.addEventListener('click', function () {
       closeModal();
     });
   }

@@ -26,7 +26,7 @@ function modal() {
 			}
 		});
 
-		close.addEventListener('click', (e) => {
+		close.addEventListener('click', () => {
 			closeModal();
 		});
 	}

@@ -1,6 +1,7 @@
 function forms() {
 	const form = document.querySelectorAll('form'),
-		  input = document.querySelectorAll('input');
+		  input = document.querySelectorAll('input'),
+		  phoneInputs = document.querySelectorAll('input[name="user_phone"]');
 
 	const message = {
 		load: 'Идет отправка...',
@@ -24,6 +25,12 @@ function forms() {
 			item.value = '';
 		});
 	};
+
+	phoneInputs.forEach(item => {
+		item.addEventListener('input', () => {
+			item.value = item.value.replace(/\D/g, "");
+		});
+	});
 
 	form.forEach(item => {
 		item.addEventListener('submit', (e) => {

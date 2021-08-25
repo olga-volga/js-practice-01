@@ -7,7 +7,7 @@ function modal() {
 			  windows = document.querySelectorAll('[data-modal]');
 
 		function closeModal() {
-			modal.style.display = '';
+			modal.style.display = 'none';
 			document.body.style.overflow = '';
 		}
 

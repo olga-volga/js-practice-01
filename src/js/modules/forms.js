@@ -1,7 +1,8 @@
+import checkInputs from './checkInputs';
+
 function forms() {
 	const form = document.querySelectorAll('form'),
-		  input = document.querySelectorAll('input'),
-		  phoneInputs = document.querySelectorAll('input[name="user_phone"]');
+		  input = document.querySelectorAll('input');
 
 	const message = {
 		load: 'Идет отправка...',
@@ -26,11 +27,7 @@ function forms() {
 		});
 	};
 
-	phoneInputs.forEach(item => {
-		item.addEventListener('input', () => {
-			item.value = item.value.replace(/\D/g, "");
-		});
-	});
+	checkInputs('input[name="user_phone"]');
 
 	form.forEach(item => {
 		item.addEventListener('submit', (e) => {

@@ -3,7 +3,8 @@ import closeModal from './closeModal';
 
 function forms(state) {
 	const form = document.querySelectorAll('form'),
-		  input = document.querySelectorAll('input');
+		  input = document.querySelectorAll('input'),
+		  windows = document.querySelectorAll('[data-modal]');
 
 	const message = {
 		load: 'Идет отправка...',
@@ -63,7 +64,9 @@ function forms(state) {
 						}, 5000);
 					})
 					.then(() => {
-						closeModal(document.querySelector('.popup_calc_end'));
+						windows.forEach(item => {
+							closeModal(item);
+						});
 					})
 				})
 		});

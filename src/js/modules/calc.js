@@ -38,7 +38,7 @@ function calc(state) {
 						state[property] = item.value;
 						break;
 				}
-				console.log(state);			
+				console.log(state);		
 			});
 		});
 	}

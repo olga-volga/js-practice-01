@@ -29,6 +29,12 @@ function forms(state) {
 		});
 	};
 
+	const clearState = () => {
+		for (let key in state) {
+			delete state[key];
+		}
+	};
+
 	checkInputs('input[name="user_phone"]');
 
 	form.forEach(item => {
@@ -57,6 +63,7 @@ function forms(state) {
 				})
 				.finally(() => {
 					clearInput();
+					clearState();
 					const fin = new Promise(resolve => {
 						setTimeout(() => {
 							statusMessage.remove();

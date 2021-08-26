@@ -1,4 +1,5 @@
 import checkInputs from './checkInputs';
+import closeModal from './closeModal';
 
 function forms(state) {
 	const form = document.querySelectorAll('form'),
@@ -54,11 +55,16 @@ function forms(state) {
 					statusMessage.textContent = message.fail;
 				})
 				.finally(() => {
-					state = {};
 					clearInput();
-					setTimeout(() => {
-						statusMessage.remove();
-					}, 5000);
+					const fin = new Promise(resolve => {
+						setTimeout(() => {
+							statusMessage.remove();
+					    	resolve();
+						}, 5000);
+					})
+					.then(() => {
+						closeModal(document.querySelector('.popup_calc_end'));
+					})
 				})
 		});
 	});

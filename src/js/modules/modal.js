@@ -1,3 +1,5 @@
+import closeModal from './closeModal';
+
 function modal() {
 
 	function bindModal(triggerSelector, modalSelector, closeSelector, closeClickOverlay = true) {
@@ -5,11 +7,6 @@ function modal() {
 			  modal = document.querySelector(modalSelector),
 			  close = document.querySelector(closeSelector),
 			  windows = document.querySelectorAll('[data-modal]');
-
-		function closeModal() {
-			modal.style.display = 'none';
-			document.body.style.overflow = '';
-		}
 
 		function showModalByTime(selector, time) {
 			setTimeout(function() {
@@ -25,7 +22,7 @@ function modal() {
 				}
 
 				windows.forEach(item => {
-					item.style.display = 'none';
+					closeModal(item);
 				});
 
 				modal.style.display = 'block';
@@ -36,19 +33,19 @@ function modal() {
 		modal.addEventListener('click', (e) => {
 			if (e.target === modal && closeClickOverlay) {
 				windows.forEach(item => {
-					item.style.display = 'none';
+					closeModal(item);
 				});
 
-				closeModal();
+				closeModal(modal);
 			}
 		});
 
 		close.addEventListener('click', () => {
 			windows.forEach(item => {
-				item.style.display = 'none';
+				closeModal(item);
 			});
 
-			closeModal();
+			closeModal(modal);
 		});
 	}
 

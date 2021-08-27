@@ -25,8 +25,16 @@ function forms(state) {
 
 	const clearInput = () => {
 		input.forEach(item => {
-			item.value = '';
+			switch(item.getAttribute('type')) {
+				case 'text':
+					item.value = '';
+					break;
+				case 'checkbox':
+					item.checked = false;
+					break;
+			}
 		});
+		
 	};
 
 	const clearState = () => {

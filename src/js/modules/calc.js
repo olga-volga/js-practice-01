@@ -38,7 +38,13 @@ function calc(state) {
 						state[property] = item.value;
 						break;
 				}
-				console.log(state);		
+				console.log(state);
+
+				if (Object.entries(state).length == 3) {
+					document.querySelector('.popup_calc_button').removeAttribute("disabled");
+				} else if (Object.entries(state).length == 5) {
+					document.querySelector('.popup_calc_profile_button').removeAttribute("disabled");
+				}
 			});
 		});
 	}

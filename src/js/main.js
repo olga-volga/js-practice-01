@@ -8,7 +8,10 @@ import calc from './modules/calc';
 window.addEventListener('DOMContentLoaded', function() {
 	"use strict";
 
-	let modalState = {};
+	let modalState = {
+		shape: 0,
+		type: "tree"
+	};
 
 	modal();
 	tabs('.glazing_slider', '.glazing_block', '.glazing_content', 'active');

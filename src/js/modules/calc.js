@@ -28,10 +28,16 @@ function calc(state) {
 								box.checked = false;
 								if (i === j) {
 									box.checked = true;
+									//document.querySelector('.popup_calc_profile_button').removeAttribute("disabled");
 								}
 							});
 						} else {
 							state[property] = item.value;
+							/*elem.forEach(input => {
+								if (input.value) {
+									document.querySelector('.popup_calc_button').removeAttribute("disabled");
+								}
+							});*/
 						}
 						break;
 					case 'SELECT':
@@ -44,6 +50,10 @@ function calc(state) {
 					document.querySelector('.popup_calc_button').removeAttribute("disabled");
 				} else if (Object.entries(state).length == 5) {
 					document.querySelector('.popup_calc_profile_button').removeAttribute("disabled");
+				}
+
+				if (item.value !== '') {
+					//document.querySelector('.popup_calc_button').removeAttribute("disabled");
 				}
 			});
 		});

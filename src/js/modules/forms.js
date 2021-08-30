@@ -39,7 +39,9 @@ function forms(state) {
 
 	const clearState = () => {
 		for (let key in state) {
-			delete state[key];
+			if (key !== 'shape' && key !== 'type') {
+				delete state[key];
+			}
 		}
 	};
 

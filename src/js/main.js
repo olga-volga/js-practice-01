@@ -4,6 +4,7 @@ import modal from './modules/modal';
 import tabs from './modules/tabs';
 import forms from './modules/forms';
 import calc from './modules/calc';
+import timer from './modules/timer';
 
 window.addEventListener('DOMContentLoaded', function() {
 	"use strict";
@@ -19,4 +20,5 @@ window.addEventListener('DOMContentLoaded', function() {
 	tabs('.balcon_icons', '.balcon_icons_img', '.popup_calc_content .big_img img', 'do_image_more', 'inline-block');
 	forms(modalState);
 	calc(modalState);
+	timer();
 });

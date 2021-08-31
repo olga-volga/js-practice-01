@@ -1,9 +1,8 @@
-function timer() {
-	const deadline = '2021-09-18';
-
+function timer(selector, endtime) {
+	
 	function countTimeRemain(endtime) {
 		const today = new Date(),
-		      time = Date.parse(deadline) - Date.parse(today),
+		      time = Date.parse(endtime) - Date.parse(today),
 		      seconds = Math.floor((time / 1000) % 60),
 		      minutes = Math.floor((time / 1000 / 60) % 60),
 		      hours = Math.floor((time / (1000 * 60 * 60)) % 24),
@@ -34,6 +33,8 @@ function timer() {
 			  seconds = document.querySelector('#seconds'),
 			  timeInterval = setInterval(updateTimer, 1000);
 
+		updateTimer();
+
 		function updateTimer() {
 			const time = countTimeRemain(endtime);
 
@@ -43,13 +44,17 @@ function timer() {
 			seconds.innerHTML = addZero(time.seconds);
 
 			if (time.total <= 0) {
+				days.innerHTML = '00';
+				hours.innerHTML = '00';
+				minutes.innerHTML = '00';
+				seconds.innerHTML = '00';
+
 				clearInterval(timeInterval);
 			}
 		}
-		updateTimer();
 	}
 
-	setTimer('#timer', deadline);
+	setTimer(selector, endtime);
 
 }
 

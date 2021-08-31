@@ -27,10 +27,13 @@ function modal() {
 
 				modal.style.display = 'block';
 				document.body.style.overflow = 'hidden';
+
+				
 			});
 			if (item.classList.contains('popup_calc_button') || item.classList.contains('popup_calc_profile_button')) {
-				item.setAttribute("disabled", "true");
+				item.disabled = true;
 			}
+			
 		});
 
 		modal.addEventListener('click', (e) => {

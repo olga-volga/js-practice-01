@@ -46,14 +46,17 @@ function calc(state) {
 				}
 				console.log(state);
 
-				if (Object.entries(state).length == 3) {
+				/*if (Object.entries(state).length == 3) {
 					document.querySelector('.popup_calc_button').removeAttribute("disabled");
 				} else if (Object.entries(state).length == 5) {
 					document.querySelector('.popup_calc_profile_button').removeAttribute("disabled");
-				}
+				}*/
 
-				if (item.value !== '') {
-					//document.querySelector('.popup_calc_button').removeAttribute("disabled");
+				if (state.width && state.height) {
+					document.querySelector('.popup_calc_button').disabled = false;
+				}
+				if (state.profile) {
+					document.querySelector('.popup_calc_profile_button').disabled = false;
 				}
 			});
 		});

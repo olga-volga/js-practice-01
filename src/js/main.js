@@ -5,6 +5,7 @@ import tabs from './modules/tabs';
 import forms from './modules/forms';
 import calc from './modules/calc';
 import timer from './modules/timer';
+import openImage from './modules/openImage';
 
 window.addEventListener('DOMContentLoaded', function() {
 	"use strict";
@@ -22,4 +23,5 @@ window.addEventListener('DOMContentLoaded', function() {
 	forms(modalState);
 	calc(modalState);
 	timer('#timer', deadline);
+	openImage();
 });

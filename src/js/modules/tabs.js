@@ -16,6 +16,7 @@ function tabs(parentSelector, tabSelector, contentSelector, activeClass, display
 
 	function showTabContent(i = 0) {
 		tabsContent[i].style.display = display;
+		tabsContent[i].classList.add('faded');
 		tabs[i].classList.add(activeClass);
 	}
 

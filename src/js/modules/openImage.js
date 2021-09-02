@@ -19,6 +19,7 @@ function openImage() {
 
 			const path = e.target.parentNode.getAttribute('href');
 			imgBig.setAttribute('src', path);
+			imgBig.classList.add('grow');
 		}
 
 		if (e.target && e.target.matches('div.popupImg')) {

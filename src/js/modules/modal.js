@@ -8,13 +8,6 @@ function modal() {
 			  close = document.querySelector(closeSelector),
 			  windows = document.querySelectorAll('[data-modal]');
 
-		function showModalByTime(selector, time) {
-			setTimeout(function() {
-				document.querySelector(selector).style.display = 'block';
-				document.body.style.overflow = 'hidden';
-			}, time);
-		}
-
 		trigger.forEach(item => {
 			item.addEventListener('click', (e) => {
 				if (e.target) {
@@ -55,6 +48,13 @@ function modal() {
 		});
 	}
 
+	function showModalByTime(selector, time) {
+		setTimeout(function() {
+			document.querySelector(selector).style.display = 'block';
+			document.body.style.overflow = 'hidden';
+		}, time);
+	}
+
 	bindModal('.popup_engineer_btn', '.popup_engineer', '.popup_engineer .popup_close');
 	bindModal('.phone_link', '.popup', '.popup .popup_close');
 
@@ -62,7 +62,7 @@ function modal() {
 	bindModal('.popup_calc_button', '.popup_calc_profile', '.popup_calc_profile_close', false);
 	bindModal('.popup_calc_profile_button', '.popup_calc_end', '.popup_calc_end_close', false);
 
-	//showModalByTime('.popup', 60000);
+	showModalByTime('.popup', 10000);
 
 }
 

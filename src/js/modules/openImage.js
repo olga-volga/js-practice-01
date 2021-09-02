@@ -3,8 +3,8 @@ function openImage() {
 		  modalImg = document.createElement('div'),
 		  imgBig = document.createElement('img');
 
-	modalImg.classList.add('popup');
-	modalImg.style.cssText = 'justify-content:center;align-items:center;';
+	modalImg.classList.add('popupImg');
+	modalImg.style.cssText = 'display: none;position: fixed;top: 0;left: 0;width: 100%;height: 100%;z-index: 9;background-color: rgba(0, 0, 0, 0.5);justify-content:center;align-items:center;';
 	parentImg.append(modalImg);
 
 	imgBig.style.cssText = 'width:auto;height:85vh';
@@ -21,7 +21,7 @@ function openImage() {
 			imgBig.setAttribute('src', path);
 		}
 
-		if (e.target && e.target.matches('div.popup')) {
+		if (e.target && e.target.matches('div.popupImg')) {
 			modalImg.style.display = 'none';
 			document.body.style.overflow = '';
 		}

@@ -1,9 +1,7 @@
 function openImage() {
-	const parentImg = document.querySelector('.works > .container > .row'),
-		  images = document.querySelectorAll('.preview');
-
-	let modalImg = document.createElement('div'),
-		imgBig = document.createElement('img');
+	const parentImg = document.querySelector('.works'),
+		  modalImg = document.createElement('div'),
+		  imgBig = document.createElement('img');
 
 	modalImg.classList.add('popup');
 	modalImg.style.cssText = 'justify-content:center;align-items:center;';
@@ -19,17 +17,11 @@ function openImage() {
 			modalImg.style.display = 'flex';
 			document.body.style.overflow = 'hidden';
 
-			images.forEach((item, i) => {
-				if (e.target == item) {
-					imgBig.setAttribute('src', `assets/img/our_works/big_img/${i+1}.png`);
-				}
-			});
+			const path = e.target.parentNode.getAttribute('href');
+			imgBig.setAttribute('src', path);
 		}
-		console.log(e.target);
-	});
 
-	modalImg.addEventListener('click', (e) => {
-		if (e.target == modalImg) {
+		if (e.target && e.target.matches('div.popup')) {
 			modalImg.style.display = 'none';
 			document.body.style.overflow = '';
 		}

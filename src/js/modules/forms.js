@@ -74,11 +74,13 @@ function forms(state) {
 				.finally(() => {
 					clearInput();
 					clearState();
+					document.querySelector('.popup_calc_button').disabled = true;
+					document.querySelector('.popup_calc_profile_button').disabled = true;
 					const fin = new Promise(resolve => {
 						setTimeout(() => {
 							statusMessage.remove();
 					    	resolve();
-						}, 5000);
+						}, 3000);
 					})
 					.then(() => {
 						windows.forEach(item => {

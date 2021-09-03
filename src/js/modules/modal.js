@@ -20,8 +20,7 @@ function modal() {
 
 				modal.style.display = 'block';
 				document.body.style.overflow = 'hidden';
-
-				
+				document.body.style.marginRight = `${calcScroll()}px`;
 			});
 			if (item.classList.contains('popup_calc_button') || item.classList.contains('popup_calc_profile_button')) {
 				item.disabled = true;
@@ -52,7 +51,21 @@ function modal() {
 		setTimeout(function() {
 			document.querySelector(selector).style.display = 'block';
 			document.body.style.overflow = 'hidden';
+			document.body.style.marginRight = `${calcScroll()}px`;
 		}, time);
+	}
+
+	function calcScroll() {
+		const div = document.createElement('div');
+
+		div.style.cssText = 'width:50px;height:50px;overflow-y:scroll;visibilty:hidden;';
+		document.body.append(div);
+
+		let scrollWidth = div.offsetWidth - div.clientWidth;
+
+		div.remove();
+
+		return scrollWidth;
 	}
 
 	bindModal('.popup_engineer_btn', '.popup_engineer', '.popup_engineer .popup_close');

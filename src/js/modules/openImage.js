@@ -1,3 +1,6 @@
+import openModal from './openModal';
+import closeModal from './closeModal';
+
 function openImage() {
 	const parentImg = document.querySelector('.works'),
 		  modalImg = document.createElement('div'),
@@ -14,8 +17,7 @@ function openImage() {
 		e.preventDefault();
 
 		if (e.target && e.target.classList.contains('preview')) {
-			modalImg.style.display = 'flex';
-			document.body.style.overflow = 'hidden';
+			openModal(modalImg, 'flex');
 
 			const path = e.target.parentNode.getAttribute('href');
 			imgBig.setAttribute('src', path);
@@ -23,8 +25,7 @@ function openImage() {
 		}
 
 		if (e.target && e.target.matches('div.popupImg')) {
-			modalImg.style.display = 'none';
-			document.body.style.overflow = '';
+			closeModal(modalImg);
 		}
 	});
 }

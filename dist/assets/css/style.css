@@ -18,6 +18,30 @@ body {
   color: red;
 }
 
+.faded {
+  animation: appearance 1s ease-in-out;
+}
+
+@keyframes appearance {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+.grow {
+  animation: bigger 1s ease-in-out;
+}
+
+@keyframes bigger {
+  from {
+    width: auto;
+    height: 35vh;
+  }
+  to {
+    width: auto;
+    height: 85vh;
+  }
+}
+
 a:hover {
   text-decoration: none;
 }

@@ -14,7 +14,7 @@ window.addEventListener('DOMContentLoaded', function() {
 		shape: 0,
 		type: "tree"
 	};
-	let deadline = '2021-09-18';
+	let deadline = '2022-06-18';
 
 	modal();
 	tabs('.glazing_slider', '.glazing_block', '.glazing_content', 'active');
